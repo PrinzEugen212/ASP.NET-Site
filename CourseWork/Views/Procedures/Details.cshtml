@@ -1,0 +1,34 @@
+﻿@model CourseWork.Models.Procedure
+
+@{
+    ViewBag.Title = "Подробная информация";
+}
+
+<h2>Подробная информация</h2>
+
+<div>
+    <h4>Процедура</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("К общему списку", "Index")
+</p>

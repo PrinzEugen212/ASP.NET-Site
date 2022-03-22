@@ -1,0 +1,40 @@
+﻿@model CourseWork.Models.Procedure
+
+@{
+    ViewBag.Title = "Удаление процедуры";
+}
+
+<h2>Удалить процедуру</h2>
+
+<h3>Вы уверены что хотите удалить процедуру?</h3>
+<div>
+    <h4>Процедура</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("К общему списку", "Index")
+        </div>
+    }
+</div>

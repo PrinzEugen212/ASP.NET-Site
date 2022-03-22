@@ -1,0 +1,88 @@
+﻿@model CourseWork.Models.Visit
+
+@{
+    ViewBag.Title = "Удаление приёма";
+}
+
+<h2>Удалить приём</h2>
+
+<h3>Вы уверены что хотите удалить приём?</h3>
+<div>
+    <h4>Приём</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Animal.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Animal.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HelperEmployee.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HelperEmployee.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagnosis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Assignment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Assignment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalCost)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("К общему списку", "Index")
+        </div>
+    }
+</div>
