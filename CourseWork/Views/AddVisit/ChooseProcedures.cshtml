@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CourseWork.Models.Procedure>
+
+@{
+    ViewBag.Title = "ChooseProcedures";
+}
+
+
+<h2>Добавление приёма: Выберите процедуры</h2>
+@using (Html.BeginForm("Confirm", "AddVisit", FormMethod.Post))
+{
+
+    @Html.Hidden("EmployeeID", ViewBag.EmployeeID as string)
+    @Html.Hidden("HelperID", ViewBag.HelperID as string)
+    @Html.Hidden("ClientID", ViewBag.ClientID as string)
+    @Html.Hidden("AnimalID", ViewBag.AnimalID as string)
+    @Html.Hidden("Assignment", ViewData["Assignment"] as string)
+    @Html.Hidden("Diagnosis", ViewData["Diagnosis"] as string)
+    @Html.Hidden("Date", ViewData["Date"] as string)
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @{
+            int i = 0;
+        }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.Hidden($"proceduresChecked[{i}].ProcedureID", item.Id)
+                </td>
+                <td>
+                    @Html.CheckBox($"proceduresChecked[{i}].Check", false, new { @class = "form-check-input" })
+                </td>
+            </tr>
+            i++;
+        }
+
+    </table>
+    <div class="form-group">
+        <input type="submit" Value="Выбрать" class="btn btn-primary" />
+    </div>
+}

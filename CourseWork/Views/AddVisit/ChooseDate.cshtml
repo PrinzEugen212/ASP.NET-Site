@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "ChooseDate";
+}
+
+<h2>Добавление приёма: Выбор даты</h2>
+
+
+@using (Html.BeginForm("ChooseDate", "AddVisit", FormMethod.Post))
+{
+    @Html.Hidden("EmployeeID", ViewBag.EmployeeID as string)
+    @Html.Hidden("HelperID", ViewBag.HelperID as string)
+    @Html.Label("Выберите дату сеанса");
+    <input type="datetime-local" name="Date" class="form-control">
+    <input type="submit" value="Выбрать" class="btn btn-primary">
+}
