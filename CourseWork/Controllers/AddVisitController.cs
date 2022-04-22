@@ -95,7 +95,7 @@ namespace CourseWork.Controllers
         [HttpPost]
         public ActionResult Confirm(int employeeID, int helperID, int clientID, int animalID, string assignment, string diagnosis, DateTime date, ProceduresCheckViewModel[] proceduresChecked)
         {
-            int[] ids = proceduresChecked.Select(p => p.ProcedureID).ToArray();
+            int[] ids = proceduresChecked.Where(p=>p.Check).Select(p => p.ProcedureID).ToArray();
             Procedure[] procedures = db.Procedures.Where(p => ids.Contains(p.Id)).ToArray();
             float totalCost = 0;
             foreach (var item in procedures)
